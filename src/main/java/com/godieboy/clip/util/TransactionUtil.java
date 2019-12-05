@@ -20,6 +20,8 @@ public class TransactionUtil {
 	
 	
 	public static Date dateFromString(String dateString) throws ParseException{
+		SimpleDateFormat sdf = new SimpleDateFormat(TransactionUtil.DATE_FORMAT);
+		sdf.setLenient(false);
 		return sdf.parse(dateString);
 	}
 
