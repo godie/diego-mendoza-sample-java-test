@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Clip Assessment</title>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h4>Acciones disponibles</h4>
+<ul>
+<li><a href="/api/transactions/123">LIST TRANSACTIONS params user_id 123</a></li>
+<li><a href="/api/transactions/123/2299ce24-9eaf-417f-82d6-e57f93666dc4">SHOW TRANSACTION params User_id = 123 && Transaction_id = 2299ce24-9eaf-417f-82d6-e57f93666dc4</a></li>
+<li><a href="/api/transactions/123/sum">SUM TRANSACTIONS user_id 123</a></li>
+<li>
+<p>ADD TRANSACTION</p>
+<textarea>
+curl -H "Content-Type: application/json" -X POST -d '{"amount":"1000","description":"My transaction", "date": "2019-11-30", "user_id" : "100"}' http://localhost:8080/api/transactions/100/add
+</textarea> 
+<!-- form action="/api/transactions/123/add" method="POST">
+
+</form -->
+</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,16 @@
+[
+	{
+		"amount": 1.23,
+		"description": "Joes Tacos",
+		"date": "2019-11-30",
+		"user_id": 123,
+		"transaction_id": "2299ce24-9eaf-417f-82d6-e57f93777dc4"
+	},
+	{
+		"amount": 100.00,
+		"description": "London paradise",
+		"date": "2019-11-30",
+		"user_id": 123,
+		"transaction_id": "2299ce24-9eaf-417f-82d6-e57f93666dc4"
+	}
+]
