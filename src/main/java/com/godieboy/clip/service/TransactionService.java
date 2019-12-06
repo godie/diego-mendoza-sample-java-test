@@ -9,7 +9,7 @@ import com.godieboy.clip.model.Transaction;
 public interface TransactionService {
 	
 	Transaction add(Transaction transaction) throws TransactionException;
-	Transaction show(long userId, String transactionId);
+	Transaction show(long userId, String transactionId) throws TransactionException;
 	List<Transaction> findByUser(long userId);
 	double sumByUser(long userId);
 	List<TransactionReportDTO> getReport(long userId);

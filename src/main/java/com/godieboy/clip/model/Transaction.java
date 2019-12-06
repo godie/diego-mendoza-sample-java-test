@@ -1,6 +1,5 @@
 package com.godieboy.clip.model;
 
-import java.sql.Timestamp;
 import java.util.Comparator;
 import java.util.Date;
 

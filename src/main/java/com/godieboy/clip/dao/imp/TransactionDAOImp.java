@@ -116,6 +116,9 @@ public class TransactionDAOImp implements TransactionDAO {
 		// TODO Auto-generated method stub
 		String id = UUID.randomUUID().toString();
 		transaction.setId(id);
+		double amount = transaction.getAmount();
+		amount = TransactionUtil.fixDouble(amount);
+		transaction.setAmount(amount);
 		
 		if(this.saveOnFile(transaction)) {
 			return transaction;

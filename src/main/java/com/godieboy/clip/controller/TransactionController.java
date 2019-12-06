@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.godieboy.clip.dto.TransactionDataDTO;
+import com.godieboy.clip.dto.TransactionReportDTO;
 import com.godieboy.clip.dto.UserSumDTO;
 import com.godieboy.clip.exception.TransactionException;
 import com.godieboy.clip.model.Transaction;
@@ -35,7 +36,7 @@ public class TransactionController {
 	
 	@RequestMapping(value="/{userId}/{transactionId}",  produces = "application/json", method = RequestMethod.GET)
 	@ResponseBody
-	public Transaction show(@PathVariable long userId,@PathVariable String transactionId) {
+	public Transaction show(@PathVariable long userId,@PathVariable String transactionId) throws TransactionException {
 		Transaction transaction = transactionService.show(userId, transactionId);
 		if(transaction == null) {
 			transaction = new Transaction();
@@ -89,6 +90,15 @@ public class TransactionController {
 		double sum = transactionService.sumByUser(userId);
 		return new UserSumDTO(userId,sum);
 	}
+	
+	@RequestMapping(value="/{userId}/report",  produces = "application/json", method = RequestMethod.GET)
+	@ResponseBody
+	public List<TransactionReportDTO> report(@PathVariable long userId) {
+		List<TransactionReportDTO> reportList = transactionService.getReport(userId);
+		return reportList;
+	}
+	
+	
 	
 	
 	

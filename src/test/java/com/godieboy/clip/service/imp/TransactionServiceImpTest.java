@@ -2,6 +2,7 @@ package com.godieboy.clip.service.imp;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -15,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.godieboy.clip.dto.TransactionReportDTO;
 import com.godieboy.clip.exception.TransactionException;
 import com.godieboy.clip.model.Transaction;
 import com.godieboy.clip.service.TransactionService;
@@ -29,8 +31,7 @@ class TransactionServiceImpTest {
 	@Autowired
 	TransactionService TransactionService;
 
-	@Test//(expected = TransactionException.class)
-	
+	@Test
 	void testAdd() throws TransactionException {
 		Transaction transaction = new Transaction();
 		transaction.setDate(new Date());
@@ -53,7 +54,7 @@ class TransactionServiceImpTest {
 	}
 
 	@Test
-	void testShow() {
+	void testShow() throws TransactionException {
 		Transaction t = TransactionService.show(123l, "2299ce24-9eaf-417f-82d6-e57f93777dc4");
 		assertNotNull(t);
 	}
@@ -79,7 +80,11 @@ class TransactionServiceImpTest {
 
 	@Test
 	void testGetReport() {
-		assertTrue(true);
+		List<TransactionReportDTO> report = TransactionService.getReport(1000);
+		assertNotNull(report);
+		assertTrue(report.size() > 0);
+		TransactionReportDTO trd = report.get(0);
+		assertEquals(41	,trd.getQuantity());
 	}
 
 }

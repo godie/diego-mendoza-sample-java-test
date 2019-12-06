@@ -1,14 +1,16 @@
-## Para ejecutar el proyecto tenemos que tener instalado docker en nuestro equipo, si no lo tienes entonces no va funcionar puedes descargar docker desde el siguiente enlace:
+## Requirements:
 
-<a href="https://hub.docker.com/">https://hub.docker.com/</a>
+* Docker <a href="https://hub.docker.com/">https://hub.docker.com/</a>
+* Java 1.8
 
-### Creamos la imagen de docker
+
+### Create docker image
 
 ```bash
 $ docker build -t com/godieboy/clip .
 ```
 
-### Nos mostrara algo parecido a lo siguiente:
+### show the follow:
  
 ```bash
 Sending build context to Docker daemon  37.38MB
@@ -35,11 +37,19 @@ Successfully tagged com/godieboy/clip:latest
 
 ```
 
-### Tercero la ejecutamos en el puerto 8080
+### Run docker in port 8080
 ```bash
 $ docker run -p 8080:8080 -t com/godieboy/clip
 ```
 
-<p>Puedes verificar que este correcto entrando en el siguiente link:</p>
+<p>Can verify if everyting is fine :</p>
 
-<a href="http://127.0.0.1:8080">App</a>
+<a href="http://127.0.0.1:8080">Link to app</a>
+
+
+### You can run the test the App with follow command
+```bash
+./mvnw test
+```
+--
+
